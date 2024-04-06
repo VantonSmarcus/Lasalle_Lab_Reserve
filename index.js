@@ -4,6 +4,8 @@ const fileUrl = require('url');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const indexRouter = require('./src/routes/indexRouter.js');
+const bcrypt = require('bcrypt');
+
 const mongoose = require('mongoose');
 
 
@@ -63,3 +65,5 @@ async function main () {
 }
 
 main();
+
+module.exports.bcrypt = bcrypt;

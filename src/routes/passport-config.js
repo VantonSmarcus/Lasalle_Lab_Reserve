@@ -1,5 +1,5 @@
 const localStrategy = require("passport-local").Strategy
-const bcrypt = require("bcrypt")
+const bcrypt = require('../../index.js').bcrypt
 
 function initialize(passport, getUserByEmail, getUserById){
     const authenticateUser = async (email, password, done) =>{
