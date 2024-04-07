@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nova Square');
 
-body::before{
+#siteDiv{
     content: "";
     background-image: url("../img/compLabPic.webp");
     background-size: cover;
@@ -9,7 +9,6 @@ body::before{
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.5;
 }
 
 #nav_bar{
