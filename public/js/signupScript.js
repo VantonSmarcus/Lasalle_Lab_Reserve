@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 if(response.status === 200)
                     window.location.href="/login";
                 else
-                document.getElementById("errorMsg").innerText = "Error: User already exists";
+                    document.getElementById("errorMsg").innerText = "Error: User already exists";
             } catch (err) {
                 console.error(err);
             }

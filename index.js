@@ -3,8 +3,8 @@ const dirname = require('path');
 const fileUrl = require('url');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const indexRouter = require('./src/routes/indexRouter.js');
-const bcrypt = require('bcrypt');
+const indexRouter = require('./src/routes/indexRouter.js').reglogTest;
+
 
 const mongoose = require('mongoose');
 
@@ -54,7 +54,7 @@ async function main () {
         await connectToDB();
         console.log ('Connected to MongoDB.');
         // Start Express App
-        const PORT = process.env.PORT || 0;
+        const PORT = process.env.PORT || 8080;
         app.listen(PORT, () => {
             console.log("Express app now listening...");
         });
@@ -66,5 +66,3 @@ async function main () {
 }
 
 main();
-
-module.exports = bcrypt;

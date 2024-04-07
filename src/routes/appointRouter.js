@@ -23,7 +23,7 @@ appointRouter.post('/post-search-data', async(req,res) =>{
 //  Function to get the fields for the search request (Room number, Date, and username)
     try{    
 
-        var currUserProfile = await fetch('http://localhost:3000/currUser')
+        var currUserProfile = await fetch(req.protocol + '://' + req.get('host') + '/currUser')
         var curruser = await currUserProfile.json()
 
         console.log("FOUND CURRENT USER: ", curruser)
@@ -55,8 +55,8 @@ appointRouter.get('/fetch-data', async(req,res) =>{
     }
 
     const appoint = await Appointment.find({}).lean().exec()
-
-    const searchProfiles = await fetch('http:localhost:3000/profile/profile')
+    console.log(req.protocol + '://' + req.get('host'));
+    const searchProfiles = await fetch(req.protocol + '://' + req.get('host') + '/profile/profile')
 
     const profiles = await searchProfiles.json()
 
@@ -97,6 +97,7 @@ appointRouter.post('/create-appointment', async(req,res)=>{
         updateData()
         res.sendStatus(200)
     }catch(err){
+        console.log(err)
         console.log("ERROR: Server side failed to create appointment")
         res.sendStatus(500)
     }

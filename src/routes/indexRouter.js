@@ -1,12 +1,17 @@
 var foundcurr
-
 const express = require('express');
+const reglogTest = express.Router();
+
+module.exports = {
+    reglogTest: reglogTest,
+    bcrypt1: require('bcrypt')
+};
+
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('express-flash');
 const initializePassport = require('./passport-config.js');
 const profiles = require('../../src/models/profile.js');
-const reglogTest = express.Router();
 const logRouter = require('./logRouter');
 const regRouter = require('./regRouter');
 const searchRouter = require('./searchRouter.js');
@@ -107,4 +112,3 @@ reglogTest.use('/labsearch', searchRouter);
 reglogTest.use('/labpage', appointRouter);
 reglogTest.use('/profile', profileRouter);
 reglogTest.use('/logout', logoutRouter)
-module.exports = reglogTest;

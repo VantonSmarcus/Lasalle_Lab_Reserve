@@ -44,7 +44,7 @@ logRouter.use(auth);
 
 logRouter.get('/', async (req, res) =>{
     try{
-        if(req.cookies.remember != ""){
+        if(req.cookies.remember != "" && req.cookies.remember != undefined){
             console.log("remember cookie: " + req.cookies.remember);
             res.render("login", {
                 title: "Login",
@@ -69,10 +69,11 @@ logRouter.post('/', passport.authenticate('local', { //test remember me
     failureRedirect: '/login',
     failureFlash: true
 }), function(req, res) {
+        console.log(req.body.remember);
     if (req.body.remember) {
         res.cookie("remember" , req.body.email, {maxAge : 3 * 7 * 24 * 60 * 60 * 1000});//req.session.cookie.maxAge = 3 * 7 * 24 * 60 * 60 * 1000;
-        console.log(req.cookies.remember);
     } else {
+        console.log("dont remember");
         res.cookie("remember" ,"");
     }
     res.redirect("/") //add ur link here DO NOT add a slash at the start
