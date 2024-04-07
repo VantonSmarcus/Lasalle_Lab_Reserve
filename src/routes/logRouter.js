@@ -39,7 +39,7 @@ function auth(req, res, next) {
         res.redirect("/"); // need ethan's files
     }
 };
-
+//hi
 logRouter.use(auth);
 
 logRouter.get('/', async (req, res) =>{
