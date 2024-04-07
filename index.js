@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 
 
 function connectToDB(dbName = process.env.DB_NAME) {
-    return mongoose.connect('mongodb+srv://ethanroyeca:C2FQHtb6hEdNbeP0@apdevmco2.fpmdyx7.mongodb.net')
+    return mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("MongoDB connection successful");
     })
@@ -54,7 +54,8 @@ async function main () {
         await connectToDB();
         console.log ('Connected to MongoDB.');
         // Start Express App
-        app.listen(process.env.SERVER_PORT || 3000, () => {
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => {
             console.log("Express app now listening...");
         });
     } catch (err) {
@@ -66,4 +67,4 @@ async function main () {
 
 main();
 
-module.exports.bcrypt = bcrypt;
+module.exports = bcrypt;
