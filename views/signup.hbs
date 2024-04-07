@@ -1,14 +1,35 @@
-{{!<!DOCTYPE html>
-<html>}}
-    {{!<head>}}
-        <div id="siteDiv">
-        {{>navbar}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            "Placeholder" Computer Lab Reservation System Registration
+        </title>
+
+        <nav id="nav_bar">
+            <ul>
+                <li>
+                    <div id="dlsuLogo"></div>
+                </li>
+                <li>
+                    <a href="/signup">Sign Up</a>
+                </li>
+                <li>
+                    <a href="/login">Log In</a>
+                </li>
+                <li>
+                    <a href="/lab">Labs</a>
+                </li>
+                <li id="logout">
+                    <a onclick="logOut()" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
         
         <link rel="stylesheet" href="/css/reg_log_design.css">
         <script src="/js/signupScript.js"></script>
-    {{!</head>}}
+    </head>
 
-    {{!<body>}}
+    <body>
             <div id="formContainer">
                 <h1 style="text-align: center;">Registration</h1>
                 <form>
@@ -26,13 +47,18 @@
                     <br>
                     <input id="passConf" name="pass_conf" type="password" required minlength="8" size="24" required>
                     <br>
+                    <br>
+                    <br>
+                    <br>
+
                     <button type='button' id="submit">Create Account</button>
-                    <a href="/">
+
+                    <a href="../homePage/home.html">
                         <button type="button">Cancel</button>
                     </a>
+                    <br>
                     <p id="errorMsg">{{errorMsg}}</p>
                 </form>
             </div>
-            </div>
-    {{!</body>}} 
-{{!</html>}}
+    </body>
+</html>

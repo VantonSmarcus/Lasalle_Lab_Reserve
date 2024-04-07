@@ -1,3 +1,4 @@
+require('dotenv').config();
 var foundcurr
 const express = require('express');
 const reglogTest = express.Router();
@@ -20,7 +21,7 @@ const profileRouter = require('./profileRouter.js');
 const logoutRouter = require('./logoutRouter.js')
 
 reglogTest.use(session({
-    secret: 'lmao guess',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
 }));
